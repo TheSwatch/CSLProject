@@ -7,14 +7,13 @@ package NYCP_Session;
 
 import java.util.Date;
 
-
 /**
  *
  * @author loic
  */
 @javax.ejb.Remote
-public interface IncarcerateSessionRemote {
-    
+public interface UseCaseSessionRemote {
+
     public void incarcerate(String prisonFileNumber, String givenName, String surname, Date dateOfBirth, String placeOfBirth, Date dateOfIncarceration, String motiveNumber, String motiveLabel, String criminalCaseNumber, Date dateOfCriminalCase, String juridictionName);
     
 }
