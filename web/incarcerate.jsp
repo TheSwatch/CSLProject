@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link type="text/css" rel="stylesheet" href="inc/style.css" />
+        <link type="text/css" rel="stylesheet" href="style.css" />
         <style type="text/css">
 	/*###### Bouton gauche des mois ######*/ 
 	.MonthLeft{
@@ -1071,7 +1071,7 @@
         <div>
             <form method="get" action="incarcerateServlet">
                 <fieldset>
-                    <legend>Prisoner informations <%= session.getAttribute( "fileNumber" ) %></legend>
+                    <legend>Prisoner informations</legend>
                     <table>
                         <tr>
                             <td>
@@ -1084,7 +1084,7 @@
                     
                         <tr>
                             <td>
-                                <label for="nom">Name </label>
+                                <label for="name">Name </label>
                             </td>
                             <td>
                                 <input type="text" id="name" name="name" value="" size="20" maxlength="20" />
@@ -1093,7 +1093,7 @@
 
                         <tr>
                             <td>
-                                <label for="prenom">First name<span class="requis">*</span></label>
+                                <label for="firstName">First name<span class="requis">*</span></label>
                             </td>
                             <td>
                                 <input type="text" id="firstName" name="firstName" value="" size="20" maxlength="20" />
@@ -1128,14 +1128,16 @@
 
                         <tr>
                             <td>
-                                <label for="motiveL">Motive label<span class="requis">*</span></label>
+                                <label for="motive">Motive label<span class="requis">*</span></label>
                             </td>
                             <td>
-                                <select name="motiveL">
+                                <select name="motive">
                                     <c:forEach items="${motive}" var="m">
                                         <option id="motive" value="${m.motiveNumber}"> <c:out value = "${m.motiveNumber} | ${m.motiveLabel}" /></option> 
                                     </c:forEach>
                                 </select>
+                            </td>
+                            <td>
                                 <a href="createMotive.jsp">New motive ...</a>
                             </td>
                         </tr>
@@ -1169,7 +1171,8 @@
                     </table>
                 </fieldset>
                 <input type="submit" value="Valider"  />
-                <input type="reset" value="Remettre à zéro" /> <br />
+                <input type="reset" value="Remettre à zéro" /> <br /><br />
+                <a href="home.jsp">Retour</a>
             </form>
         </div>
     </body>

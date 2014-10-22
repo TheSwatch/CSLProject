@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link type="text/css" rel="stylesheet" href="inc/style.css" />
+        <link type="text/css" rel="stylesheet" href="style.css" />
         <title>JSP Page</title>
     </head>
     <body>
@@ -20,7 +20,7 @@
                     <table>
                         <tr>
                             <td>
-                                <label for="motiveLabel">motiveLabel</label>
+                                <label for="motiveLabel">motiveLabel<span class="requis">*</span></label>
                             </td>
                             <td>
                                 <input type="text" id="motiveLabel" name="motiveLabel" size="20" maxlength="20" />

@@ -11,16 +11,18 @@
     <head>
         <meta charset="utf-8" />
         <title>Affichage d'un client</title>
-        <link type="text/css" rel="stylesheet" href="inc/style.css" />
+        <link type="text/css" rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <p class="info">${ message }</p>
         <form>
                 <select name="nom" size="1">
-                    <c:forEach items="${manager}" var="p">
+                    <c:forEach items="${motive}" var="p">
                        <option> <c:out value = "${p}" /></option> 
                     </c:forEach>
                 </select>
         </form>
+        
         <%-- Affichage de la chaîne "message" transmise par la servlet --%>
         <%-- Puis affichage des données enregistrées dans le bean "client" transmis par la servlet --%>
         
