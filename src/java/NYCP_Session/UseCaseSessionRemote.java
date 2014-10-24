@@ -5,6 +5,7 @@
  */
 package NYCP_Session;
 
+import NYCP_Entities.Motive;
 import java.util.Date;
 
 /**
@@ -14,6 +15,6 @@ import java.util.Date;
 @javax.ejb.Remote
 public interface UseCaseSessionRemote {
 
-    public void incarcerate(String prisonFileNumber, String givenName, String surname, Date dateOfBirth, String placeOfBirth, Date dateOfIncarceration, String motiveNumber, String motiveLabel, String criminalCaseNumber, Date dateOfCriminalCase, String juridictionName);
+    public void incarcerate(String prisonFileNumber, String givenName, String surname, Date dateOfBirth, String placeOfBirth, Date dateOfIncarceration, Motive motive, String criminalCaseNumber, Date dateOfCriminalCase, String juridictionName);
     
 }

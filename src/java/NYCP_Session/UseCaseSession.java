@@ -6,6 +6,7 @@
 package NYCP_Session;
 
 import NYCP_Entities.Incarceration;
+import NYCP_Entities.Motive;
 import java.util.Date;
 import javax.ejb.EJB;
 
@@ -17,27 +18,29 @@ import javax.ejb.EJB;
 
 public class UseCaseSession implements UseCaseSessionRemote {
 
-    /*@EJB
-    private PrisonerSession prisoner;
-    private MotiveSession motive;
-    private CriminalCaseSession criminalCase;
-    private PrisonerCriminalCaseSession prisonerCriminalCase;
+    @EJB
+    private PrisonerSessionRemote prisoner;
+    @EJB
+    private CriminalCaseSessionRemote criminalCase;
+    @EJB
+    private PrisonerCriminalCaseSessionRemote prisonerCriminalCase;
 
     @javax.persistence.PersistenceContext(name = "NYCPPU")
-    private javax.persistence.EntityManager _entity_manager;*/
+    private javax.persistence.EntityManager _entity_manager;
 
     
+   
     @Override
-    public void incarcerate(final String prisonFileNumber,final String givenName,final String surname,final Date dateOfBirth,final String placeOfBirth,final Date dateOfIncarceration,final String motiveNumber,final String motiveLabel,final String criminalCaseNumber,final Date dateOfCriminalCase,final String juridictionName){
-            /*prisoner.insertPrisoner(prisonFileNumber, givenName, surname, dateOfBirth, placeOfBirth);
+    public void incarcerate(final String prisonFileNumber,final String givenName,final String surname,final Date dateOfBirth,final String placeOfBirth,final Date dateOfIncarceration,final Motive motive,final String criminalCaseNumber,final Date dateOfCriminalCase,final String juridictionName){
+            prisoner.insertPrisoner(prisonFileNumber, givenName, surname, dateOfBirth, placeOfBirth);
             criminalCase.insertCriminalCase(criminalCaseNumber, juridictionName, dateOfCriminalCase);
             Incarceration incarceration = new Incarceration(prisonFileNumber);
             incarceration.setDateOfIncarceration(dateOfIncarceration);
-            incarceration.setMotiveNumber(motive.insertMotive(motiveNumber, motiveLabel));
+            incarceration.setMotiveNumber(motive);
             incarceration.setPrisonerCriminalCase(prisonerCriminalCase.insertPrisonerCriminalCase(prisonFileNumber, criminalCaseNumber, juridictionName));
 
             System.out.println("TEST :" + incarceration);
 
-            _entity_manager.persist(incarceration);*/
+            _entity_manager.persist(incarceration);
     }
 }

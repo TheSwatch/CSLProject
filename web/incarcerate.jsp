@@ -9,8 +9,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Incarcerate page</title>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="style.css" />
+        <link rel="shortcut icon" href="images/favicon.ico">
         <style type="text/css">
 	/*###### Bouton gauche des mois ######*/ 
 	.MonthLeft{
@@ -1075,59 +1078,6 @@
                     <table>
                         <tr>
                             <td>
-                               <label for="fileNumber">Prisoner file number <span class="requis">*</span></label>
-                            </td>
-                            <td>
-                                <input type="text" id="fileNumber" name="fileNumber" value="" size="20" maxlength="20" />
-                            </td>
-                        </tr>
-                    
-                        <tr>
-                            <td>
-                                <label for="name">Name </label>
-                            </td>
-                            <td>
-                                <input type="text" id="name" name="name" value="" size="20" maxlength="20" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <label for="firstName">First name<span class="requis">*</span></label>
-                            </td>
-                            <td>
-                                <input type="text" id="firstName" name="firstName" value="" size="20" maxlength="20" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="dateOB">Date of birth</label>
-                            </td>
-                            <td>
-                                <input type="text" id="dateOB" name="dateOB" value="" size="20" maxlength="60" onclick="new calendar(this);"/>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <label for="placeOB">Place of birth<span class="requis">*</span></label>
-                            </td>
-                            <td>
-                                <input type="text" id="placeOB" name="placeOB" value="" size="20" maxlength="20" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <label for="dIncarceration">Date of incarceration<span class="requis">*</span></label>
-                            </td>
-                            <td>
-                                <input type="text" id="dIncarceration" name="dIncarceration" value="" size="20" maxlength="20" onclick="new calendar(this);"/>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
                                 <label for="motive">Motive label<span class="requis">*</span></label>
                             </td>
                             <td>
@@ -1138,7 +1088,60 @@
                                 </select>
                             </td>
                             <td>
-                                <a href="createMotive.jsp">New motive ...</a>
+                                <a href="createMotive.jsp">+ New motive</a>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                               <label for="fileNumber">Prisoner file number <span class="requis">*</span></label>
+                            </td>
+                            <td>
+                                <input type="text" id="fileNumber" name="fileNumber" placeholder="Ex: 0001, 0002.." size="20" maxlength="20" />
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>
+                                <label for="name">Name <span class="requis">*</span></label>
+                            </td>
+                            <td>
+                                <input type="text" id="name" name="name" placeholder="Ex: Satriani, Clapton.." size="20" maxlength="20" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="firstName">First name<span class="requis">*</span></label>
+                            </td>
+                            <td>
+                                <input type="text" id="firstName" name="firstName" placeholder="Ex: Joe, Eric.." size="20" maxlength="20" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="dateOB">Date of birth</label>
+                            </td>
+                            <td>
+                                <input readonly="true" type="text" id="dateOB" name="dateOB" placeholder="Click to select.." size="20" maxlength="60" onclick="new calendar(this);"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="placeOB">Place of birth<span class="requis">*</span></label>
+                            </td>
+                            <td>
+                                <input type="text" id="placeOB" name="placeOB" placeholder="Ex: Paris, Londres" size="20" maxlength="20" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="dIncarceration">Date of incarceration<span class="requis">*</span></label>
+                            </td>
+                            <td>
+                                <input readonly="true" type="text" id="dIncarceration" name="dIncarceration" placeholder="Click to select.." size="20" maxlength="20" onclick="new calendar(this);"/>
                             </td>
                         </tr>
 
@@ -1147,7 +1150,7 @@
                                 <label for="criminalCN">Criminal case number<span class="requis">*</span></label>
                             </td>
                             <td>
-                                <input type="text" id="criminalCN" name="criminalCN" value="" size="20" maxlength="20" />
+                                <input type="text" id="criminalCN" name="criminalCN" placeholder="Ex: CC-0001, CC-0002.." size="20" maxlength="20" />
                             </td>
                         </tr>
 
@@ -1156,7 +1159,7 @@
                                 <label for="dateOCC">Date of criminal case<span class="requis">*</span></label>
                             </td>
                             <td>
-                                <input type="date" id="dateOCC" name="dateOCC" value="" size="20" maxlength="20" onclick="new calendar(this);"/>
+                                <input readonly="true" type="date" id="dateOCC" name="dateOCC" placeholder="Click to select.." size="20" maxlength="20" onclick="new calendar(this);"/>
                             </td>
                         </tr>
 
@@ -1165,14 +1168,15 @@
                                 <label for="jName">Juridiction name<span class="requis">*</span></label>
                             </td>
                             <td>
-                                <input type="text" id="jName" name="jName" value="" size="20" maxlength="20" />
+                                <input type="text" id="jName" name="jName" placeholder="Ex: New York, Bagnères de Bigorre.." size="20" maxlength="20" />
                             </td>
                         </tr>
                     </table>
                 </fieldset>
-                <input type="submit" value="Valider"  />
-                <input type="reset" value="Remettre à zéro" /> <br /><br />
-                <a href="home.jsp">Retour</a>
+                <input type="submit" value="Submit"  />
+                <input type="reset" value="Reset" /> <br /><br />
+                <p class="info">${ message }</p><br />
+                <a href="home.jsp">Return</a>
             </form>
         </div>
     </body>

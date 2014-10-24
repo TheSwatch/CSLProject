@@ -5,12 +5,11 @@
  */
 package NYCP_Servlet;
 
-import NYCP_Entities.Incarceration;
+import NYCP_Session.MotiveSessionRemote;
+import NYCP_Session.UseCaseSessionRemote;
 import java.io.IOException;
-import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.NamingException;
+import java.util.Date;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +24,11 @@ import javax.servlet.http.HttpServletResponse;
 
 public class incarcerateServlet extends HttpServlet {
 
+    @EJB
+    private UseCaseSessionRemote useCaseIncarcerate;
+    @EJB
+    private MotiveSessionRemote motiveSession;
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -43,37 +47,24 @@ public class incarcerateServlet extends HttpServlet {
         String criminalCN = request.getParameter( "criminalCN" );
         String dateOCC = request.getParameter( "dateOCC" );
         String jName = request.getParameter( "jName" );
-        
+                
         String message;
-        /*
-         * Initialisation du message à afficher : si un des champs obligatoires
+        
+         /* Initialisation du message à afficher : si un des champs obligatoires
          * du formulaire n'est pas renseigné, alors on affiche un message
          * d'erreur, sinon on affiche un message de succès
          */
         if ( fileNumber.trim().isEmpty() || name.trim().isEmpty() || firstName.trim().isEmpty() || dateOB.trim().isEmpty() || placeOB.trim().isEmpty() || dIncarceration.trim().isEmpty() || motive.trim().isEmpty() || criminalCN.trim().isEmpty() || dateOCC.trim().isEmpty() || jName.trim().isEmpty()){
-            message = "Erreur - Vous n'avez pas rempli tous les champs<br> <a href=\"incarcerate.jsp\">Cliquez ici</a> pour accéder au formulaire d'incarcération.";
+            message = "Error - Empty fields !";
         } else {
-            message = "Incarceration créé avec succès !";
+            useCaseIncarcerate.incarcerate(fileNumber, name, firstName, new Date(dateOB), placeOB, new Date(dIncarceration), motiveSession.find(motive), criminalCN, new Date(dateOCC), jName);
+            message = "Successful !";
         }
-        /*
-         * Création du bean Client et initialisation avec les données récupérées
-         */
-        
-        javax.naming.Context jndi_context;
-        try {
-            jndi_context = new javax.naming.InitialContext();
-            NYCP_Session.UseCaseSessionRemote useCaseIncarcerate = (NYCP_Session.UseCaseSessionRemote) jndi_context.lookup("ejb/UseCaseSession+");
-            useCaseIncarcerate.incarcerate(fileNumber, name, firstName, new GregorianCalendar().getTime(), placeOB, new GregorianCalendar().getTime(), fileNumber, motive, criminalCN, new GregorianCalendar().getTime(), firstName);
-        } catch (NamingException ex) {
-            Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Incarceration incarceration = new Incarceration(fileNumber);
-        
+
         /* Ajout du bean et du message à l'objet requête */
-        request.setAttribute( "incarceration", incarceration );
         request.setAttribute( "message", message );
 
         /* Transmission à la page JSP en charge de l'affichage des données */
-        this.getServletContext().getRequestDispatcher( "/afficherClient" ).forward( request, response );
+        this.getServletContext().getRequestDispatcher( "/getMotiveServlet" ).forward( request, response );
     }
 }
