@@ -41,6 +41,7 @@ public class getMotiveServlet extends HttpServlet {
         } catch (NamingException ex) {
             Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         /* Ajout du bean et du message à l'objet requête */
         request.setAttribute( "motive", motives );
 
