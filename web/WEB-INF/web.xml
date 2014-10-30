@@ -24,6 +24,14 @@
         <servlet-name>takeConvictionServlet</servlet-name>
         <servlet-class>NYCP_Servlet.takeConvictionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>takeFinalDischargeServlet</servlet-name>
+        <servlet-class>NYCP_Servlet.takeFinalDischargeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>takeShortenedServlet</servlet-name>
+        <servlet-class>NYCP_Servlet.takeShortenedServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet.java</servlet-name>
         <url-pattern>/Servlet.java</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>takeConvictionServlet</servlet-name>
         <url-pattern>/takeConvictionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>takeFinalDischargeServlet</servlet-name>
+        <url-pattern>/takeFinalDischargeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>takeShortenedServlet</servlet-name>
+        <url-pattern>/takeShortenedServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -76,6 +92,14 @@
         <jsp-property-group>
             <display-name>takeConvictionDecision.jsp</display-name>
             <url-pattern>/takeConvictionDecision.jsp</url-pattern>
+        </jsp-property-group>
+        <jsp-property-group>
+            <display-name>takeFinalDischargeDecision.jsp</display-name>
+            <url-pattern>/takeFinalDischargeDecision.jsp</url-pattern>
+        </jsp-property-group>
+        <jsp-property-group>
+            <display-name>takeShortenedDecision</display-name>
+            <url-pattern>/takeShortenedDecision.jsp</url-pattern>
         </jsp-property-group>
     </jsp-config>
 </web-app>
