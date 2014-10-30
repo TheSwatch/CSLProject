@@ -81,6 +81,6 @@ public class incarcerateServlet extends HttpServlet {
         request.setAttribute( "message", message );
 
         /* Transmission à la page JSP en charge de l'affichage des données */
-        this.getServletContext().getRequestDispatcher( "/getMotiveServlet" ).forward( request, response );
+        this.getServletContext().getRequestDispatcher( "/incarcerate.jsp" ).forward( request, response );
     }
 }
