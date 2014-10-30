@@ -59,4 +59,10 @@ public class MotiveSession implements MotiveSessionRemote {
         return motives;
     }
     
+    @Override
+    public Motive find(final String motiveNumber){
+        Motive motive = _entity_manager.find(Motive.class, motiveNumber);
+        return motive;
+    }
+    
 }

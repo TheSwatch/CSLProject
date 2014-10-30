@@ -20,5 +20,7 @@ public interface MotiveSessionRemote {
     public String deleteMotive(String motiveNumber);
 
     public Collection getAllMotive();
+
+    public Motive find(String motiveNumber);
     
 }
