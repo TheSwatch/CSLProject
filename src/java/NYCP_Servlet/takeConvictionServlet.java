@@ -58,7 +58,7 @@ public class takeConvictionServlet extends HttpServlet {
          * du formulaire n'est pas renseigné, alors on affiche un message
          * d'erreur, sinon on affiche un message de succès
          */
-        if (prisonerFileNumber.trim().isEmpty() || duration.trim().isEmpty() || decisionType.trim().isEmpty()){
+        if (prisonerFileNumber.trim().isEmpty() || duration.trim().isEmpty() || decisionType.trim().isEmpty() || dateODecision == null){
             message = "Error - Empty fields !";
         } else {
             useCase.takeConvictionDecision(decisionType, prisonerFileNumber, dateODecision, new Integer(duration));
@@ -69,7 +69,7 @@ public class takeConvictionServlet extends HttpServlet {
         request.setAttribute( "message", message );
 
         /* Transmission à la page JSP en charge de l'affichage des données */
-        this.getServletContext().getRequestDispatcher( "/getPrisonersServlet" ).forward( request, response );
+        this.getServletContext().getRequestDispatcher( "/takeConvictionDecision.jsp" ).forward( request, response );
     }
 
 }
