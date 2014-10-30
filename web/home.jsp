@@ -15,8 +15,8 @@
     </head>
     <body>
         <img src="images/prison.png" style="width:208px;height:208px">
-        <p><a href="getMotiveServlet">Incarcerate prisoner</a></p>
-        <p><a href="getPrisonersServlet">Take conviction decision</a></p>
-        <p><a href="afficherClient.jsp">Test1</a></p>
+        <p><a href="incarcerate.jsp">Incarcerate prisoner</a></p>
+        <p><a href="takeConvictionDecision.jsp">Take conviction decision</a></p>
+        <p><a href="takeFinalDischargeDecision.jsp">Test1</a></p>
     </body>
 </html>
