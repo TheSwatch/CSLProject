@@ -32,7 +32,8 @@
                 </fieldset>
                 <input type="submit" value="Submit"  />
                 <input type="reset" value="Reset" /> <br />
-                <a href="getMotiveServlet">Return</a>
+                <p class="info">${ message }</p><br />
+                <a href="incarcerate.jsp">Return</a>
             </form>
         </div>
     </body>
