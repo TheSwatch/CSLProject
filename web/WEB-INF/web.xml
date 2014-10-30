@@ -32,6 +32,10 @@
         <servlet-name>takeShortenedServlet</servlet-name>
         <servlet-class>NYCP_Servlet.takeShortenedServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>getUnderRemandServlet</servlet-name>
+        <servlet-class>NYCP_Servlet.getUnderRemandServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet.java</servlet-name>
         <url-pattern>/Servlet.java</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>takeShortenedServlet</servlet-name>
         <url-pattern>/takeShortenedServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getUnderRemandServlet</servlet-name>
+        <url-pattern>/getUnderRemandServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -100,6 +108,10 @@
         <jsp-property-group>
             <display-name>takeShortenedDecision</display-name>
             <url-pattern>/takeShortenedDecision.jsp</url-pattern>
+        </jsp-property-group>
+        <jsp-property-group>
+            <display-name>underRemand</display-name>
+            <url-pattern>/underRemand.jsp</url-pattern>
         </jsp-property-group>
     </jsp-config>
 </web-app>
