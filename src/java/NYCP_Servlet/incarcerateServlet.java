@@ -8,7 +8,11 @@ package NYCP_Servlet;
 import NYCP_Session.MotiveSessionRemote;
 import NYCP_Session.UseCaseSessionRemote;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,24 +44,36 @@ public class incarcerateServlet extends HttpServlet {
         String fileNumber = request.getParameter( "fileNumber" );
         String name = request.getParameter( "name" );
         String firstName = request.getParameter( "firstName" );
-        String dateOB = request.getParameter( "dateOB" );
+        String tempDateOB = request.getParameter( "dateOB" );
         String placeOB = request.getParameter( "placeOB" );
-        String dIncarceration = request.getParameter( "dIncarceration" );
+        String tempDIncarceration = request.getParameter( "dIncarceration" );
         String motive = request.getParameter( "motive" );
         String criminalCN = request.getParameter( "criminalCN" );
-        String dateOCC = request.getParameter( "dateOCC" );
+        String tempDateOCC = request.getParameter( "dateOCC" );
         String jName = request.getParameter( "jName" );
                 
         String message;
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateOB= null;
+        Date dateIncarceration= null;
+        Date dateOCC= null;
+        try {
+            dateOB = sdf.parse(tempDateOB);
+            dateIncarceration = sdf.parse(tempDIncarceration);
+            dateOCC = sdf.parse(tempDateOCC);
+        } catch (ParseException ex) {
+            Logger.getLogger(incarcerateServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
          /* Initialisation du message à afficher : si un des champs obligatoires
          * du formulaire n'est pas renseigné, alors on affiche un message
          * d'erreur, sinon on affiche un message de succès
          */
-        if ( fileNumber.trim().isEmpty() || name.trim().isEmpty() || firstName.trim().isEmpty() || dateOB.trim().isEmpty() || placeOB.trim().isEmpty() || dIncarceration.trim().isEmpty() || motive.trim().isEmpty() || criminalCN.trim().isEmpty() || dateOCC.trim().isEmpty() || jName.trim().isEmpty()){
+        if ( fileNumber.trim().isEmpty() || name.trim().isEmpty() || firstName.trim().isEmpty() || placeOB.trim().isEmpty() || motive.trim().isEmpty() || criminalCN.trim().isEmpty() || jName.trim().isEmpty()){
             message = "Error - Empty fields !";
         } else {
-            useCaseIncarcerate.incarcerate(fileNumber, name, firstName, new Date(dateOB), placeOB, new Date(dIncarceration), motiveSession.find(motive), criminalCN, new Date(dateOCC), jName);
+            useCaseIncarcerate.incarcerate(fileNumber, name, firstName, dateOB, placeOB, dateIncarceration, motiveSession.find(motive), criminalCN, dateOCC, jName);
             message = "Successful !";
         }
 
