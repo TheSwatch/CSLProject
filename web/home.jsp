@@ -19,5 +19,6 @@
         <p><a href="takeConvictionDecision.jsp">Take conviction decision</a></p>
         <p><a href="takeFinalDischargeDecision.jsp">Take final discharge decision</a></p>
         <p><a href="takeShortenedDecision.jsp">Take shortened sentence decision</a></p>
+        <p><a href="underRemand.jsp">Under remand</a></p>
     </body>
 </html>
