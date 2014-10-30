@@ -8,9 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Create motive page</title>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="style.css" />
-        <title>JSP Page</title>
+        <link rel="shortcut icon" href="images/favicon.ico">  
     </head>
     <body>
         <div>
@@ -20,16 +22,16 @@
                     <table>
                         <tr>
                             <td>
-                                <label for="motiveLabel">motiveLabel<span class="requis">*</span></label>
+                                <label for="motiveLabel">Motive Label<span class="requis">*</span></label>
                             </td>
                             <td>
-                                <input type="text" id="motiveLabel" name="motiveLabel" size="20" maxlength="20" />
+                                <input type="text" id="motiveLabel" name="motiveLabel" placeholder="Ex: Crimes, Theft.." size="20" maxlength="20" />
                             </td>
                         </tr>
                     </table>
                 </fieldset>
-                <input type="submit" value="Valider"  />
-                <input type="reset" value="Remettre à zéro" /> <br />
+                <input type="submit" value="Submit"  />
+                <input type="reset" value="Reset" /> <br />
                 <a href="getMotiveServlet">Return</a>
             </form>
         </div>

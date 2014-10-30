@@ -17,7 +17,7 @@
         <p class="info">${ message }</p>
         <form>
                 <select name="nom" size="1">
-                    <c:forEach items="${motive}" var="p">
+                    <c:forEach items="${incarceration}" var="p">
                        <option> <c:out value = "${p}" /></option> 
                     </c:forEach>
                 </select>

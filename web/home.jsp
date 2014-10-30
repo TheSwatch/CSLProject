@@ -8,12 +8,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>NYCP Home Page</title>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home Page</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
     </head>
     <body>
+        <img src="images/prison.png" style="width:208px;height:208px">
         <p><a href="getMotiveServlet">Incarcerate prisoner</a></p>
         <p><a href="incarcerateServlet">Test</a></p>
-        <p><a href="createMotiveServlet">Test1</a></p>
+        <p><a href="afficherClient.jsp">Test1</a></p>
     </body>
 </html>
