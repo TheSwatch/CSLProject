@@ -27,6 +27,10 @@ public class UseCaseSession implements UseCaseSessionRemote {
     private PrisonerCriminalCaseSessionRemote prisonerCriminalCase;
     @EJB
     private ConvictionSessionRemote conviction;
+    @EJB
+    private FinalDischargeSessionRemote finalDischarge;
+    @EJB
+    private ShortenedSentenceSessionRemote shortenedSentence;
 
     @javax.persistence.PersistenceContext(name = "NYCPPU")
     private javax.persistence.EntityManager _entity_manager;
@@ -53,5 +57,16 @@ public class UseCaseSession implements UseCaseSessionRemote {
         
         conviction.insertConviction(decisionTypeNumber, prisonerFileNumber, dateOfDecision, duration);      
     }
-            
+    
+    @Override
+    public void takeFinalDischargeDecision(final String decisionTypeNumber, final String prisonerFileNumber, final Date dateOfDecision, final Date dateOFD){
+        
+        finalDischarge.insertFinalDischarge(decisionTypeNumber, prisonerFileNumber, dateOfDecision, dateOFD);
+    }
+    
+    @Override
+    public void takeShortenedDecision(final String decisionTypeNumber, final String prisonerFileNumber, final Date dateOfDecision, final Integer duration){
+        
+        shortenedSentence.insertShortenedSentence(decisionTypeNumber, prisonerFileNumber, dateOfDecision, duration);
+    }
 }

@@ -5,6 +5,7 @@
  */
 package NYCP_Session;
 
+import NYCP_Entities.JudicialDecision;
 import NYCP_Entities.ShortenedSentence;
 import NYCP_Entities.ShortenedSentencePK;
 import java.util.Date;
@@ -21,17 +22,12 @@ public class ShortenedSentenceSession implements ShortenedSentenceSessionRemote 
     private javax.persistence.EntityManager _entity_manager;
     
     @Override
-    public String insertShortenedSentence(final String decisionTypeNumber, final String prisonFileNumber, final Date dateOfDecision, final int duration){
-        
-        String message;
-        
+    public void insertShortenedSentence(final String decisionTypeNumber, final String prisonFileNumber, final Date dateOfDecision, final int duration){
+        JudicialDecision judicialDecision = new JudicialDecision(decisionTypeNumber, prisonFileNumber, dateOfDecision);
         ShortenedSentence shortenedSentence = new ShortenedSentence(decisionTypeNumber, prisonFileNumber, dateOfDecision);
         shortenedSentence.setDuration(duration);
-        _entity_manager.persist(shortenedSentence);
-        
-        message = "shortenedSentence created";
-        
-        return message;
+        judicialDecision.setShortenedSentence(shortenedSentence);
+        _entity_manager.persist(judicialDecision);
         
     }
     

@@ -14,7 +14,7 @@ import java.util.Date;
 @javax.ejb.Remote
 public interface ShortenedSentenceSessionRemote {
 
-    public String insertShortenedSentence(String decisionTypeNumber, String prisonFileNumber, Date dateOfDecision, int duration);
+    public void insertShortenedSentence(String decisionTypeNumber, String prisonFileNumber, Date dateOfDecision, int duration);
 
     public String deleteShortenedSentence(String decisionTypeNumber, String prisonFileNumber, Date dateOfDecision);
     
