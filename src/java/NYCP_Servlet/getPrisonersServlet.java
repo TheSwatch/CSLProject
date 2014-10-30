@@ -21,11 +21,10 @@ import javax.servlet.http.HttpServletResponse;
  * @author loic
  */
 
-@WebServlet(name = "getPrisoners", urlPatterns = {"/getPrisoners"})
+@WebServlet(name = "getPrisonersServlet", urlPatterns = {"/getPrisonersServlet"})
 
-public class getPrisoners extends HttpServlet {
-
-
+public class getPrisonersServlet extends HttpServlet {
+    
     @Override
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         /*
@@ -39,12 +38,12 @@ public class getPrisoners extends HttpServlet {
             NYCP_Session.PrisonerSessionRemote prisoner = (NYCP_Session.PrisonerSessionRemote) jndi_context.lookup("ejb/Prisoner+");
             prisoners = prisoner.getAllPrisoner();
         } catch (NamingException ex) {
-            Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(getPrisonersServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         /* Ajout du bean et du message à l'objet requête */
-        request.setAttribute( "prisoner", prisoners );
+        request.setAttribute( "prisoners", prisoners );
 
         /* Transmission à la page JSP en charge de l'affichage des données */
-        this.getServletContext().getRequestDispatcher( "/afficherClient.jsp" ).forward( request, response );
+        this.getServletContext().getRequestDispatcher( "/takeConvictionDecision.jsp" ).forward( request, response );
     }
 }

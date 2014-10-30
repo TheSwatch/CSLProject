@@ -14,8 +14,10 @@ import java.util.Date;
 @javax.ejb.Remote
 public interface ConvictionSessionRemote {
 
-    public void insertConviction(String decisionTypeNumber, String prisonFileNumber, Date dateOfDecision);
+    public void insertConviction(String decisionTypeNumber, String prisonFileNumber, Date dateOfDecision, Integer duration);
 
     public String deleteConviction(String decisionTypeNumber, String prisonFileNumber, Date dateOfDecision);
+
+    
     
 }

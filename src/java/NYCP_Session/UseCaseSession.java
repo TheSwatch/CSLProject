@@ -6,6 +6,7 @@
 package NYCP_Session;
 
 import NYCP_Entities.Incarceration;
+import NYCP_Entities.JudicialDecision;
 import NYCP_Entities.Motive;
 import java.util.Date;
 import javax.ejb.EJB;
@@ -24,6 +25,8 @@ public class UseCaseSession implements UseCaseSessionRemote {
     private CriminalCaseSessionRemote criminalCase;
     @EJB
     private PrisonerCriminalCaseSessionRemote prisonerCriminalCase;
+    @EJB
+    private ConvictionSessionRemote conviction;
 
     @javax.persistence.PersistenceContext(name = "NYCPPU")
     private javax.persistence.EntityManager _entity_manager;
@@ -32,15 +35,23 @@ public class UseCaseSession implements UseCaseSessionRemote {
    
     @Override
     public void incarcerate(final String prisonFileNumber,final String givenName,final String surname,final Date dateOfBirth,final String placeOfBirth,final Date dateOfIncarceration,final Motive motive,final String criminalCaseNumber,final Date dateOfCriminalCase,final String juridictionName){
-            prisoner.insertPrisoner(prisonFileNumber, givenName, surname, dateOfBirth, placeOfBirth);
-            criminalCase.insertCriminalCase(criminalCaseNumber, juridictionName, dateOfCriminalCase);
-            Incarceration incarceration = new Incarceration(prisonFileNumber);
-            incarceration.setDateOfIncarceration(dateOfIncarceration);
-            incarceration.setMotiveNumber(motive);
-            incarceration.setPrisonerCriminalCase(prisonerCriminalCase.insertPrisonerCriminalCase(prisonFileNumber, criminalCaseNumber, juridictionName));
+        
+        prisoner.insertPrisoner(prisonFileNumber, givenName, surname, dateOfBirth, placeOfBirth);
+        criminalCase.insertCriminalCase(criminalCaseNumber, juridictionName, dateOfCriminalCase);
+        Incarceration incarceration = new Incarceration(prisonFileNumber);
+        incarceration.setDateOfIncarceration(dateOfIncarceration);
+        incarceration.setMotiveNumber(motive);
+        incarceration.setPrisonerCriminalCase(prisonerCriminalCase.insertPrisonerCriminalCase(prisonFileNumber, criminalCaseNumber, juridictionName));
 
-            System.out.println("TEST :" + incarceration);
+        System.out.println("TEST :" + incarceration);
 
-            _entity_manager.persist(incarceration);
+        _entity_manager.persist(incarceration);      
     }
+    
+    @Override
+    public void takeConvictionDecision(final String decisionTypeNumber, final String prisonerFileNumber, final Date dateOfDecision, final Integer duration){
+        
+        conviction.insertConviction(decisionTypeNumber, prisonerFileNumber, dateOfDecision, duration);      
+    }
+            
 }
