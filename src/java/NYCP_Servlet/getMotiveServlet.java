@@ -46,6 +46,6 @@ public class getMotiveServlet extends HttpServlet {
         request.setAttribute( "motive", motives );
 
         /* Transmission à la page JSP en charge de l'affichage des données */
-        this.getServletContext().getRequestDispatcher( "/incarcerate.jsp" ).forward( request, response );
+        //this.getServletContext().getRequestDispatcher( "/incarcerate.jsp" ).forward( request, response );
     }
 }

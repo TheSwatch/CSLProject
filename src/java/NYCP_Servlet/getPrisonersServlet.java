@@ -7,6 +7,7 @@ package NYCP_Servlet;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.NamingException;
@@ -42,8 +43,8 @@ public class getPrisonersServlet extends HttpServlet {
         }
         /* Ajout du bean et du message à l'objet requête */
         request.setAttribute( "prisoners", prisoners );
-
+        
         /* Transmission à la page JSP en charge de l'affichage des données */
-        this.getServletContext().getRequestDispatcher( "/takeConvictionDecision.jsp" ).forward( request, response );
+        //this.getServletContext().getRequestDispatcher( "/takeConvictionDecision.jsp" ).forward( request, response );
     }
 }
