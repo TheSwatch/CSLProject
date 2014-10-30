@@ -20,5 +20,7 @@ public interface PrisonerSessionRemote {
     public String deletePrisoner(String prisonFileNumber);
 
     public Collection getAllPrisoner();
+
+    public Collection getUnderRemand();
     
 }

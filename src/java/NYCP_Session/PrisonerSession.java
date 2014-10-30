@@ -57,4 +57,13 @@ public class PrisonerSession implements PrisonerSessionRemote {
         prisoners = q.getResultList();
         return prisoners;
     }
+    
+    @Override
+    public Collection getUnderRemand(){
+        
+        Collection prisoners;
+        Query q = _entity_manager.createNamedQuery("Prisoner.findUnderRemand");
+        prisoners = q.getResultList();
+        return prisoners;
+    }
 }
