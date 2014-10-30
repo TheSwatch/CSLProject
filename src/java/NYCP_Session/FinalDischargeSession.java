@@ -7,6 +7,7 @@ package NYCP_Session;
 
 import NYCP_Entities.FinalDischarge;
 import NYCP_Entities.FinalDischargePK;
+import NYCP_Entities.JudicialDecision;
 import java.util.Date;
 
 @javax.ejb.Stateless(mappedName = "ejb/FinalDischarge+", name = "FinalDischarge")
@@ -21,17 +22,15 @@ public class FinalDischargeSession implements FinalDischargeSessionRemote {
     @javax.persistence.PersistenceContext(name = "NYCPPU")
     private javax.persistence.EntityManager _entity_manager;
     
+
     @Override
-    public String insertFinalDischarge(final String decisionTypeNumber, final String prisonFileNumber, final Date dateOfDecision, final Date dateOfFinalDischarge) {
-        String message;
+    public void insertFinalDischarge(final String decisionTypeNumber, final String prisonFileNumber, final Date dateOfDecision, final Date dateOfFinalDischarge) {
         
+        JudicialDecision judicialDecision = new JudicialDecision(decisionTypeNumber, prisonFileNumber, dateOfDecision);
         FinalDischarge finalDischages = new FinalDischarge(decisionTypeNumber, prisonFileNumber, dateOfDecision);
         finalDischages.setDateOfFinalDischarge(dateOfFinalDischarge);
-        _entity_manager.persist(finalDischages);
-        
-        message = "FinalDischarges created";
-        
-        return message;
+        judicialDecision.setFinalDischarge(finalDischages);
+        _entity_manager.persist(judicialDecision);
     }
     
     @Override

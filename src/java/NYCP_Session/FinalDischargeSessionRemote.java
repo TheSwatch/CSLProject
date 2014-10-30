@@ -15,7 +15,7 @@ import java.util.Date;
 @javax.ejb.Remote
 public interface FinalDischargeSessionRemote {
 
-    public String insertFinalDischarge(String decisionTypeNumber, String prisonFileNumber, Date dateOfDecision, Date dateOfFinalDischarge);
+    public void insertFinalDischarge(String decisionTypeNumber, String prisonFileNumber, Date dateOfDecision, Date dateOfFinalDischarge);
 
     public String deleteFinalDischarges(String decisionTypeNumber, String prisonFileNumber, Date dateOfDecision);
     
