@@ -39,7 +39,7 @@ public class takeConvictionServlet extends HttpServlet {
          * Récupération des données saisies, envoyées en tant que paramètres de
          * la requête GET générée à la validation du formulaire
          */
-        String dateODecision = request.getParameter("dateODecision");
+        String tempDateDecision = request.getParameter("dateODecision");
         String prisonerFileNumber = request.getParameter( "prisoner" );
         String duration = request.getParameter( "duration" );
         String decisionType = request.getParameter( "decisionType" );
@@ -47,9 +47,9 @@ public class takeConvictionServlet extends HttpServlet {
         String message;
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date d = null;
+        Date dateODecision = null;
         try {
-            d = sdf.parse(dateODecision);
+            dateODecision = sdf.parse(tempDateDecision);
         } catch (ParseException ex) {
             Logger.getLogger(takeConvictionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -61,7 +61,7 @@ public class takeConvictionServlet extends HttpServlet {
         if (prisonerFileNumber.trim().isEmpty() || duration.trim().isEmpty() || decisionType.trim().isEmpty()){
             message = "Error - Empty fields !";
         } else {
-            useCase.takeConvictionDecision(decisionType, prisonerFileNumber, d, new Integer(duration));
+            useCase.takeConvictionDecision(decisionType, prisonerFileNumber, dateODecision, new Integer(duration));
             message = "Successful !";
         }
 
