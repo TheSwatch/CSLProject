@@ -9,8 +9,8 @@
         <servlet-class>NYCP_Servlet.getMotiveServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>getPrisoners</servlet-name>
-        <servlet-class>NYCP_Servlet.getPrisoners</servlet-class>
+        <servlet-name>getPrisonersServlet</servlet-name>
+        <servlet-class>NYCP_Servlet.getPrisonersServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>createMotiveServlet</servlet-name>
@@ -19,6 +19,10 @@
     <servlet>
         <servlet-name>incarcerateServlet</servlet-name>
         <servlet-class>NYCP_Servlet.incarcerateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>takeConvictionServlet</servlet-name>
+        <servlet-class>NYCP_Servlet.takeConvictionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Servlet.java</servlet-name>
@@ -29,8 +33,8 @@
         <url-pattern>/getMotiveServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>getPrisoners</servlet-name>
-        <url-pattern>/getPrisoners</url-pattern>
+        <servlet-name>getPrisonersServlet</servlet-name>
+        <url-pattern>/getPrisonersServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>createMotiveServlet</servlet-name>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>incarcerateServlet</servlet-name>
         <url-pattern>/incarcerateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>takeConvictionServlet</servlet-name>
+        <url-pattern>/takeConvictionServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -64,6 +72,10 @@
         <jsp-property-group>
             <display-name>createMotive.jsp</display-name>
             <url-pattern>/createMotive.jsp</url-pattern>
+        </jsp-property-group>
+        <jsp-property-group>
+            <display-name>takeConvictionDecision.jsp</display-name>
+            <url-pattern>/takeConvictionDecision.jsp</url-pattern>
         </jsp-property-group>
     </jsp-config>
 </web-app>
