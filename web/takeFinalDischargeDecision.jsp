@@ -1,26 +1,25 @@
 <%-- 
-    Document   : takeFinalDischargeDecision
-    Created on : 30 oct. 2014, 19:20:45
-    Author     : loic
+    Author     : Loïc Irles
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <jsp:include page="getPrisonersServlet"/>
+
+<!DOCTYPE html>
 <html>
     <head>
         <title>Take final discharge decision page</title>
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="css/style.css" />
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"> 
     </head>
     <body>
         <div>
             <form method="get" action="takeFinalDischargeServlet">
                 <fieldset>
-                    <legend>Informations</legend>
+                    <legend>Decision Informations</legend>
                     <table>
                         <tr>
                             <td>

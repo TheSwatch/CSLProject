@@ -1,12 +1,11 @@
 <%-- 
-    Document   : incarcerate
-    Created on : 14 oct. 2014, 16:35:31
-    Author     : loic
+    Author     : Loïc Irles
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="getMotiveServlet"/>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +13,7 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="css/style.css" />
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"> 
     </head>
     <body>
         <div>

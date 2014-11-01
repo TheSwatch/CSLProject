@@ -1,7 +1,5 @@
 <%-- 
-    Document   : createMotive
-    Created on : 15 oct. 2014, 23:07:00
-    Author     : loic
+    Author     : Loïc Irles
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,7 +10,7 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link type="text/css" rel="stylesheet" href="css/style.css" />
-        <link rel="shortcut icon" href="images/favicon.ico">  
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">  
     </head>
     <body>
         <div>
