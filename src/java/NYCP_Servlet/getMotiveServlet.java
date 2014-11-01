@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package NYCP_Servlet;
 
 import java.io.IOException;
@@ -18,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author loic
+ * @author Loïc Irles
  */
 
 @WebServlet(name = "getMotiveServlet", urlPatterns = {"/getMotiveServlet"})
@@ -39,13 +35,10 @@ public class getMotiveServlet extends HttpServlet {
             NYCP_Session.MotiveSessionRemote motive = (NYCP_Session.MotiveSessionRemote) jndi_context.lookup("ejb/Motive+");
             motives = motive.getAllMotive();
         } catch (NamingException ex) {
-            Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(getMotiveServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        /* Ajout du bean et du message à l'objet requête */
+        /* Ajout du bean à l'objet requête */
         request.setAttribute( "motive", motives );
-
-        /* Transmission à la page JSP en charge de l'affichage des données */
-        //this.getServletContext().getRequestDispatcher( "/incarcerate.jsp" ).forward( request, response );
     }
 }

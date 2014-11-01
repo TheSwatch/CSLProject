@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package NYCP_Servlet;
 
 import java.io.IOException;
@@ -18,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author loic
+ * @author Loïc Irles
  */
 
 @WebServlet(name = "getUnderRemandServlet", urlPatterns = {"/getUnderRemandServlet"})
@@ -40,10 +36,7 @@ public class getUnderRemandServlet extends HttpServlet {
         } catch (NamingException ex) {
             Logger.getLogger(getUnderRemandServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /* Ajout du bean et du message à l'objet requête */
+        /* Ajout du bean à l'objet requête */
         request.setAttribute( "prisoners", prisoners );
-        
-        /* Transmission à la page JSP en charge de l'affichage des données */
-        //this.getServletContext().getRequestDispatcher( "/takeConvictionDecision.jsp" ).forward( request, response );
     }
 }

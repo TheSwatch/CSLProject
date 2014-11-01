@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package NYCP_Servlet;
 
 import NYCP_Session.UseCaseSessionRemote;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author loic
+ * @author Loïc Irles
  */
 @WebServlet(name = "takeFinalDischargeSevlet", urlPatterns = {"/takeFinalDischargeSevlet"})
 
@@ -66,7 +61,7 @@ public class takeFinalDischargeServlet extends HttpServlet {
             message = "Successful !";
         }
 
-        /* Ajout du bean et du message à l'objet requête */
+        /* Ajout du message à l'objet requête */
         request.setAttribute( "message", message );
 
         /* Transmission à la page JSP en charge de l'affichage des données */

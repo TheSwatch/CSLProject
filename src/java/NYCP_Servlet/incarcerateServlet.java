@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package NYCP_Servlet;
 
 import NYCP_Session.MotiveSessionRemote;
@@ -22,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author loic
+ * @author Loïc Irles
  */
 @WebServlet(name = "incarcerateServlet", urlPatterns = {"/incarcerateServlet"})
 
@@ -77,7 +73,7 @@ public class incarcerateServlet extends HttpServlet {
             message = "Successful !";
         }
 
-        /* Ajout du bean et du message à l'objet requête */
+        /* Ajout du message à l'objet requête */
         request.setAttribute( "message", message );
 
         /* Transmission à la page JSP en charge de l'affichage des données */

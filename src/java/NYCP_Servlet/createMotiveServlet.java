@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package NYCP_Servlet;
 
-import NYCP_Entities.Motive;
 import NYCP_Session.MotiveSessionRemote;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
-import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author loic
+ * @author Loïc Irles
  */
 
 @WebServlet(name = "createMotiveServlet", urlPatterns = {"/createMotiveServlet"})
@@ -54,7 +45,7 @@ public class createMotiveServlet extends HttpServlet {
             message = "Successful !";
         }
                 
-        /* Ajout du bean et du message à l'objet requête */
+        /* Ajout du message à l'objet requête */
 
         request.setAttribute( "message", message );
 
