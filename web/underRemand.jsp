@@ -16,37 +16,42 @@
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     </head>
     <body>
+        <div id="en_tete" align="center">
+            <titre>NYCP</titre><br/>
+            <titre>Penitentiary</titre>
+        </div>
         <div>
             <fieldset>
-                <table border="2">
+                <table id="t01" style="width:100%">
                     <tr>
-                        <td>
+                        <th style="width:30%">
                             <label for="prisoner">Prisoner number</label>
-                        </td>
-                        <td>
+                        </th>
+                        <th style="width:30%">
                             <label for="prisoner">Given name</label>
-                        </td>
-                        <td>
+                        </th>
+                        <th style="width:30%">
                             <label for="prisoner">Surname</label>
-                        </td>
+                        </th>
                     </tr>
+                </table>
+                <table id="t02" style="width:100%">
                     <c:forEach items="${prisoners}" var="p">
                         <tr>
-                            <td>
+                            <td style="width:30%">
                                 <c:out value = "${p.prisonFileNumber}" />                              
                             </td>
-                            <td>
+                            <td style="width:30%">
                                 <c:out value = "${p.givenName}" />                              
                             </td>
-                            <td>
+                            <td style="width:30%">
                                 <c:out value = "${p.surname}" />                              
-                            </td>
-                            
+                            </td>  
                         </tr>
                     </c:forEach>
                 </table>
             </fieldset>
-            <a href="home.jsp">Return</a>
+            <font size="4pt"><a href="home.jsp">Return</a></font>
         </div>
     </body>
 </html>

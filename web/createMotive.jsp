@@ -13,6 +13,10 @@
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">  
     </head>
     <body>
+        <div id="en_tete" align="center">
+            <titre>NYCP</titre><br/>
+            <titre>Penitentiary</titre>
+        </div>
         <div>
             <form method="get" action="createMotiveServlet">
                 <fieldset>
@@ -31,7 +35,7 @@
                 <input type="submit" value="Submit"  />
                 <input type="reset" value="Reset" /> <br />
                 <p class="info">${ message }</p><br />
-                <a href="incarcerate.jsp">Return</a>
+                <font size="5pt"><a href="incarcerate.jsp">Return</a></font>
             </form>
         </div>
     </body>

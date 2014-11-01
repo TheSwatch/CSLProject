@@ -16,6 +16,10 @@
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"> 
     </head>
     <body>
+        <div id="en_tete" align="center">
+            <titre>NYCP</titre><br/>
+            <titre>Penitentiary</titre>
+        </div>
         <div>
             <form method="get" action="incarcerateServlet">
                 <fieldset>
@@ -121,7 +125,7 @@
                 <input type="submit" value="Submit"  />
                 <input type="reset" value="Reset" /> <br /><br />
                 <p class="info">${ message }</p><br />
-                <a href="home.jsp">Return</a>
+                <font size="4pt"><a href="home.jsp">Return</a></font>
             </form>
         </div>
     </body>

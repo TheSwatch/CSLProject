@@ -1,17 +1,22 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
+
 /* 
     Created on : 11 oct. 2014, 19:16:45
-    Author     : loic
+    Author     : Loïc  Irles
 */
 
 /* Général ------------------------------------------------------------------------------------- */
 
 body, p, legend, label, input {
-    font: normal 8pt verdana, helvetica, sans-serif;
+    font: normal 10pt verdana, helvetica, sans-serif;
+    width: 760px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-image: url("../images/Blue.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+   /*background-color: antiquewhite;
+   border: 2px solid blue;*/
 }
 
 /* Forms --------------------------------------------------------------------------------------- */
@@ -22,8 +27,9 @@ fieldset {
 }
 
 legend {
-    font-weight: bold;
-    color: #0568CD;
+    /*font-weight: bold;*/
+    color: antiquewhite;
+    font-size: 20px;
 }
 
 form label {
@@ -34,13 +40,18 @@ form label {
 
 form input {
     float: right; 
-    width: 200px;
+    width: 300px;
     margin: 3px 3px 0px 0px;
-    border: 1px #999 solid;
+    border: 1px antiquewhite solid;
+    background-color: antiquewhite;
+}
+
+::-webkit-input-placeholder {
+   color: antiquewhite;
 }
 
 form input.sansLabel {
-    margin-left: 200px;
+    margin-left: 300px;
 }
 
 /* Styles et couleurs -------------------------------------------------------------------------- */
@@ -49,7 +60,7 @@ form input.sansLabel {
 }
 
 .erreur {
-    color: #900;
+    color: #c00;
 }
 
 .succes {
@@ -58,256 +69,40 @@ form input.sansLabel {
 
 .info {
     font-style: italic;
-    color: #E8A22B;
+    color: #c00;
 }
 
-
-/*###### Bouton gauche des mois ######*/ 
-.MonthLeft{
-        width:14px;
-        height:50px;
-        background:url('images/static.png') -112px -250px;
-        position:absolute;
-        left:-2px;
-        top:0px;
-}
-.MonthLeftOver{
-        width:14px;
-        height:50px;
-        background:url('images/static.png') -126px -250px;
-        position:absolute;
-        left:-2px;
-        top:0px;
-}
-.MonthLeftClick{
-        width:14px;
-        height:50px;
-        background:url('images/static.png') -140px -250px;
-        position:absolute;
-        left:-2px;
-        top:0px;
-}
-/*###### Bouton droit des mois ######*/ 
-.MonthRight{
-        width:14px;
-        height:50px;
-        background:url('images/static.png') -154px -250px;
-        position:absolute;
-        right:-2px;
-        top:0px;
-}
-.MonthRightOver{
-        width:14px;
-        height:50px;
-        background:url('images/static.png') -168px -250px;
-        position:absolute;
-        right:-2px;
-        top:0px;
-}
-.MonthRightClick{
-        width:14px;
-        height:50px;
-        background:url('images/static.png') -182px -250px;
-        position:absolute;
-        right:-2px;
-        top:0px;
+table#t02 tr:nth-child(even) {
+    background-color: lightblue;
+    text-align: center;
 }
 
-/*###### Bouton haut des années ######*/ 
-
-.YearTop{
-        width:14px;
-        height:25px;
-        background:url('images/static.png') -196px -250px;
-        position:absolute;
-        right:-2px;
-        top:0px;
-}
-.YearTopOver{
-        width:14px;
-        height:25px;
-        background:url('images/static.png') -210px -250px;
-        position:absolute;
-        right:-2px;
-        top:0px;		
-}
-.YearTopClick{
-        width:14px;
-        height:25px;
-        background:url('images/static.png') -224px -250px;
-        position:absolute;
-        right:-2px;
-        top:0px;		
-}
-/*###### Bouton bas des années ######*/ 
-
-.YearBottom{
-        width:14px;
-        height:25px;
-        background:url('images/static.png') -196px -275px;
-        position:absolute;
-        right:-2px;
-        bottom:0px;		
-}
-.YearBottomOver{
-        width:14px;
-        height:25px;
-        background:url('images/static.png') -210px -275px;
-        position:absolute;
-        right:-2px;
-        bottom:0px;			
-}
-.YearBottomClick{
-        width:14px;
-        height:25px;
-        background:url('images/static.png') -224px -275px;
-        position:absolute;
-        right:-2px;
-        bottom:0px;			
-}
-/*###### conteneur principal ######*/ 
-.calendar{
-        width:300px;
-        height:250px;
-        background:url('images/static.png') no-repeat;
-        position:absolute;
-        left:400px;
-        font-weight:bold;
-        font-family:Tahoma,"Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
-        font-size:11px;
-        text-align:center;
+table#t02 tr:nth-child(odd) {
+   background-color: lightskyblue;
+   text-align: center;
 }
 
-.contentMonth{
-        width:130px;
-        height:50px;
-        background:url('images/static.png') -100px -300px repeat-x;
-        position:absolute;
-        left:85px;
-        top:5px;
-}
-.pMonth{
-        width:130px;
-        height:50px;
-        line-height:50px;
-        display:block;
-}
-.contentDay{
-        width:56px;
-        height:50px;
-        line-height:25px;
-        text-align:center;
-        background:url('images/static.png') 0px -250px;
-        position:absolute;
-        left:15px;
-        top:5px;
-}
-.contentYear{
-        width:56px;
-        height:50px;
-        background:url('images/static.png') -56px -250px;
-        position:absolute;
-        left:230px;
-        top:5px;
-}
-.pYear{
-        width:42px;
-        height:50px;
-        line-height:50px;
-        display:block;
-}
-.contentListDay{
-        width:290px;
-        height:155px;
-        overflow:hidden;
-        position:absolute;
-        left:5px;
-        top:90px;
-
-}
-.contentListDay ul{
-        width:100%;
-        height:100%;
-        position:absolute;
-        margin:0px;
-        padding:2px 0px 0px 1px;
-}
-.dayCurrent{
-        width:41px;
-        height:25px;
-        line-height:25px;
-        display:block;
-        float:left;
-        text-align:center;
-        color:#000000;
-        font-weight:bold;
-        background:url('images/static.png') -41px -352px;
-}
-.liOut{
-        width:41px;
-        height:25px;
-        line-height:25px;
-        display:block;
-        float:left;
-        text-align:center;
-        color:#000000;
-        font-weight:bold;
-        background:url('images/static.png') 0px -352px;
-        cursor:pointer;
-}
-.liHover{
-        width:41px;
-        height:25px;
-        line-height:25px;
-        display:block;
-        float:left;
-        text-align:center;
-        color:#000000;
-        font-weight:bold;
-        background:url('images/static.png') -41px -352px;
-        cursor:pointer;
-}
-.liInactive{
-        width:41px;
-        height:25px;
-        line-height:25px;
-        display:block;
-        float:left;
-        text-align:center;
-        color:#000000;
-        font-weight:bold;
-        background:url('images/static.png') -82px -352px;
-}
-.contentNameDay{
-        width:290px;
-        height:27px;
-        line-height:27px;
-        overflow:hidden;
-        position:absolute;
-        left:5px;
-        top:63px;
-        padding:0px;
-        margin:0px;
-        list-style:none;
+table#t01 th{
+    color: white;
+    text-align: center;
 }
 
-.contentNameDay li{
-        width:41px;
-        display:block;
-        float:left;
-        text-align:center;
-        color:#000000;
-        font-weight:bold;
+table#home tr{
+    text-align: center;
 }
 
-.bugFrame{
-        position:absolute;
-        top:0px;
-        left:0px;
-        background:url('images/static.png') no-repeat;
-        z-index:0;
-        width:100%;
-        height:100%;
-        border:0px;
+#en_tete
+{
+   width: 760px;
+   height: 200px;
+   /*background-image: url("../images/prison.png");*/
+   background-repeat: no-repeat;
+   margin-bottom: 10px;
 }
 
+#en_tete titre{
+   font-family: Century Gothic;
+   color: whitesmoke;
+   text-align: center;
+   font-size: 60px;
+}
