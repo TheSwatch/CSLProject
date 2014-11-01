@@ -69,7 +69,7 @@ public class incarcerateServlet extends HttpServlet {
         if ( fileNumber.trim().isEmpty() || name.trim().isEmpty() || firstName.trim().isEmpty() || placeOB.trim().isEmpty() || motive.trim().isEmpty() || criminalCN.trim().isEmpty() || jName.trim().isEmpty()){
             message = "Error - Empty fields !";
         } else {
-            useCaseIncarcerate.incarcerate(fileNumber, name, firstName, dateOB, placeOB, dateIncarceration, motiveSession.find(motive), criminalCN, dateOCC, jName);
+            useCaseIncarcerate.incarcerate(fileNumber, name, firstName, dateOB, placeOB, dateIncarceration, motiveSession.findMotive(motive), criminalCN, dateOCC, jName);
             message = "Successful !";
         }
 

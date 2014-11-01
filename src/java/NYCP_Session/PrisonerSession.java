@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package NYCP_Session;
 
 import NYCP_Entities.Prisoner;
@@ -10,11 +5,12 @@ import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Query;
 
-@javax.ejb.Stateless(mappedName = "ejb/Prisoner+", name = "Prisoner")
 /**
  *
- * @author loic
+ * @author Loïc Irles
  */
+
+@javax.ejb.Stateless(mappedName = "ejb/Prisoner+", name = "Prisoner")
 
 public class PrisonerSession implements PrisonerSessionRemote {
     
@@ -29,24 +25,14 @@ public class PrisonerSession implements PrisonerSessionRemote {
         prisoner.setSurname(surname);
         prisoner.setDateOfBirth(dateOfBirth);
         prisoner.setPlaceOfBirth(placeOfBirth);
-        _entity_manager.persist(prisoner);
-        
+        _entity_manager.persist(prisoner);       
     }
     
     @Override
-    public String deletePrisoner(final String prisonFileNumber){
-        String message;
+    public void deletePrisoner(final String prisonFileNumber){
         
         Prisoner prisoner = _entity_manager.find(Prisoner.class, prisonFileNumber);
-        if(prisoner != null){
-            message = "Prisoner number : " + prisonFileNumber + " found.";
-        }else{
-            message = "Prisoner number : " + prisonFileNumber + " not found.";
-        }
-        
         _entity_manager.remove(prisoner);
-        
-        return message;
     }
     
     @Override

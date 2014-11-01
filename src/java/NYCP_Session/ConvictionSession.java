@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package NYCP_Session;
 
 import NYCP_Entities.Conviction;
@@ -10,11 +5,12 @@ import NYCP_Entities.ConvictionPK;
 import NYCP_Entities.JudicialDecision;
 import java.util.Date;
 
-@javax.ejb.Stateless(mappedName = "ejb/Conviction+", name = "Conviction")
 /**
  *
- * @author loic
+ * @author Loïc Irles
  */
+
+@javax.ejb.Stateless(mappedName = "ejb/Conviction+", name = "Conviction")
 
 public class ConvictionSession implements ConvictionSessionRemote {
 
@@ -23,29 +19,18 @@ public class ConvictionSession implements ConvictionSessionRemote {
 
     @Override
     public void insertConviction(final String decisionTypeNumber, final String prisonFileNumber, final Date dateOfDecision, final Integer duration) {
+        
         JudicialDecision judicialDecision = new JudicialDecision(decisionTypeNumber, prisonFileNumber, dateOfDecision);
         Conviction conviction = new Conviction(decisionTypeNumber, prisonFileNumber, dateOfDecision);
         conviction.setDuration(duration);
         judicialDecision.setConviction(conviction);
-        _entity_manager.persist(judicialDecision);
+        _entity_manager.persist(judicialDecision);        
     }
     
     @Override
-    public String deleteConviction(final String decisionTypeNumber, final String prisonFileNumber, final Date dateOfDecision) {
-        String message;
+    public void deleteConviction(final String decisionTypeNumber, final String prisonFileNumber, final Date dateOfDecision) {
         
-        Conviction conviction = _entity_manager.find(Conviction.class, new ConvictionPK(decisionTypeNumber, prisonFileNumber, dateOfDecision));
-        if(conviction != null)
-        {
-            message = "Conviction number : " + decisionTypeNumber + " found.";
-        }
-        else{
-            message = "Conviction number : " + decisionTypeNumber + " not found.";
-        }
-            
+        Conviction conviction = _entity_manager.find(Conviction.class, new ConvictionPK(decisionTypeNumber, prisonFileNumber, dateOfDecision));            
         _entity_manager.remove(conviction);
-        return message;
-    }
-    
-    
+    }    
 }

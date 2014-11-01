@@ -1,19 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package NYCP_Session;
+
 import NYCP_Entities.Motive;
 import java.util.Collection;
 import javax.persistence.Query;
 
-
-@javax.ejb.Stateless(mappedName = "ejb/Motive+", name = "Motive")
 /**
  *
- * @author loic
+ * @author Loïc Irles
  */
+
+@javax.ejb.Stateless(mappedName = "ejb/Motive+", name = "Motive")
 
 public class MotiveSession implements MotiveSessionRemote {
 
@@ -22,32 +18,18 @@ public class MotiveSession implements MotiveSessionRemote {
     
     @Override
      public Motive insertMotive(final String motiveNumber, final String motiveLabel) {
-        String message;
         
         Motive motive = new Motive(motiveNumber);
         motive.setMotiveLabel(motiveLabel);
-        _entity_manager.persist(motive);
-        
-        message = "Motive created";
-        
+        _entity_manager.persist(motive);        
         return motive;
     }
     
     @Override
-    public String deleteMotive(final String motiveNumber) {
-        String message;
+    public void deleteMotive(final String motiveNumber) {
         
         Motive motive = _entity_manager.find(Motive.class, motiveNumber);
-        if(motive != null)
-        {
-            message = "Motive number : " + motiveNumber + " found.";
-        }
-        else{
-            message = "Motive number : " + motiveNumber + " not found.";
-        }
-            
         _entity_manager.remove(motive);
-        return message;
     }
     
     @Override
@@ -60,9 +42,9 @@ public class MotiveSession implements MotiveSessionRemote {
     }
     
     @Override
-    public Motive find(final String motiveNumber){
+    public Motive findMotive(final String motiveNumber){
+        
         Motive motive = _entity_manager.find(Motive.class, motiveNumber);
         return motive;
-    }
-    
+    }   
 }
